@@ -7,3 +7,6 @@ Algorithms &amp; Data Structures written in Python for competitive coding
 
 ### Merge Sort
 [An efficient, comparison based sorting algorithm](https://en.wikipedia.org/wiki/Merge_sort)
+
+### Binary Search Tree
+[A data structure satisfying binary search property](https://en.wikipedia.org/wiki/Binary_search_tree)
