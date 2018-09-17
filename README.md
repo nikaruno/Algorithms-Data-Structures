@@ -10,3 +10,7 @@ Algorithms &amp; Data Structures written in Python for competitive coding
 
 ### Binary Search Tree
 [A data structure satisfying binary search property](https://en.wikipedia.org/wiki/Binary_search_tree)
+
+## Greedy Algorithms
+### Prim
+[Finds a minimum spanning tree for a weighted unidirected graph](Prim's algorithm - Wikipedia)
