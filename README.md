@@ -13,4 +13,4 @@ Algorithms &amp; Data Structures written in Python for competitive coding
 
 ## Greedy Algorithms
 ### Prim
-[Finds a minimum spanning tree for a weighted unidirected graph](Prim's algorithm - Wikipedia)
+[Finds a minimum spanning tree for a weighted unidirected graph](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
