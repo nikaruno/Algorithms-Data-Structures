@@ -1,74 +1,57 @@
-int minimumLoss(vector<long> price) {
+class Node{
+    public:
+        long value;
+        Node* left;
+        Node* right;
+        Node(){
+            left = NULL;
+            right = NULL;
+            value = 0;
+        };
+        Node(int v) : value(v){
+            left = NULL;
+            right = NULL;
+        };
+        ~Node(){
+            delete left;
+            delete right;
+        }
+        Node* insert(Node* root, long value, long& min);
+};
+
+Node* Node::insert(Node *root, long value, long& min){
+    if (!root){
+        return new Node(value);
+    }
+    
+    if(value>root->value){
+        root->right = insert(root->right, value, min);
+    }
+    
+    if(value<root->value){
+        if (value - root->value > min){
+            min = value - root->value;
+        }
+        root->left = insert(root->left, value, min);
+    }  
+    
+    return root;  
+}
+
+long minimumLoss(vector<long> price) {
 
     int n = price.size();
     
-    list<long> aList;
-    list<long>::iterator it;
-    
     long min = -9223372036854775807;
     
-    if (price[0]>price[1]){
-        aList.push_back(price[1]);
-        aList.push_back(price[0]);
-        if ((price[1]-price[0])>min){
-            min = (price[1]-price[0]);
-        }
-    }
-    else{
-        aList.push_back(price[0]);
-        aList.push_back(price[1]);        
-    }
-    
-    
-    int next;
-    int i, j, mid;
-    for (int k = 2; k<n; ++k){
-        next = price[k];
-        if (next < aList.front()){
-            if (next - aList.front()>min){
-                min = next - aList.front();
-            }
-            aList.push_front(next);
-        }
-        else if ( next > aList.back()){
-            aList.push_back(next);
-        }
-        else{
-            i = 0, j = k, mid = 0;
-            while (i < j) {
-                mid = (i + j) / 2;
-                it = aList.begin();
-                advance(it, mid);
-                if (next < *it) {
-                    --it;
-                    if (mid>0 && next > *it){                        
-                        ++it;
-                        if ((next - *it) > min){
-                            min = (next - *it);
-                        }
-                        aList.insert(it, next);
-                        break;
-                    }
-                    j = mid;    
-                }
-                else{
-                    ++it;
-                    if (mid < (n - 1) && next < *it){
-                        if ((next - *it) > min){
-                            min = (next - *it);
-                        }                        
-                        aList.insert(it, next);
-                        break;                        
-                    }
-                    i = mid + 1;    
-                }    
-            }    
-        }
+    Node* root = NULL;
+    Node bst;
 
-
-    }
+    root = bst.insert(root, price[0], min);
     
-
+    for(int i = 1; i<n; ++i){
+        bst.insert(root, price[i], min);
+    }
     
     return (-min);
 }
