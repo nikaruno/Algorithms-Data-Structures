@@ -1,5 +1,5 @@
 # Algorithms-Data-Structures
-Algorithms &amp; Data Structures written in Python for competitive coding
+Algorithms &amp; Data Structures written in Python or C++ for competitive coding
 
 ## Sort Algorithms
 ### Bubble Sort
